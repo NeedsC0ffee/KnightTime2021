@@ -20,33 +20,23 @@ class SettingsVC: UITableViewController {
     @IBOutlet weak var f7:UITextField!
     @IBOutlet weak var idarkMode:UISwitch!
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    @IBAction func dismissSettings(){
+        performSegue(withIdentifier: "unwindToSchedule", sender: self)
+    }
+    
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
-    
+    let nvc = NormalVC()
     override func viewDidLoad() {
         super.viewDidLoad()
              let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
             tap.cancelsTouchesInView = false
             view.addGestureRecognizer(tap)
-        if defaults.bool(forKey: "launchedBefore") {
-            let p1 = "57**&^$$%48"
-            let p2 = "57**&^$$%48"
-            let p3 = "57**&^$$%48"
-            let p4  = "57**&^$$%48"
-            let p5A = "57**&^$$%48"
-            let p5B = "57**&^$$%48"
-            let p6 = "57**&^$$%48"
-            let p7 = "57**&^$$%48"
-            defaults.set(p1, forKey: "1111")
-            defaults.set(p2, forKey: "2222")
-            defaults.set(p3, forKey: "3333")
-            defaults.set(p4, forKey: "4444")
-            defaults.set(p5A, forKey: "5555A")
-            defaults.set(p5B, forKey: "5555B")
-            defaults.set(p6, forKey: "6666")
-            defaults.set(p7, forKey: "7777")
-        }
         let pd1 = defaults.object(forKey: "1111") as! String
         let pd2 = defaults.object(forKey: "2222") as! String
         let pd3 = defaults.object(forKey: "3333") as! String
@@ -63,32 +53,31 @@ class SettingsVC: UITableViewController {
                 overrideUserInterfaceStyle = .light
                 idarkMode.setOn(false, animated: false)
                 }
-        print(pd1)
         if pd1 != "57**&^$$%48" {
             print("Default 1 Set")
             f1.text = pd1
-            print(pd1)
+            
         }else {
             print("No Default 1")
         }
         if pd2 != "57**&^$$%48" {
             print("Default 2 Set")
             f2.text = pd2
-            print(pd2)
+            
         }else {
             print("No Default 2")
         }
         if pd3 != "57**&^$$%48" {
             print("Default 3 Set")
             f3.text = pd3
-            print(pd3)
+            
         }else {
             print("No Default 3 ")
         }
         if pd4 != "57**&^$$%48" {
             print("Default 4 Set")
             f4.text = pd4
-            print(pd4)
+            
         }else {
             print("No Default 4 ")
         }

@@ -10,7 +10,7 @@ import Foundation
 
 
 class SettingsVC: UITableViewController {
-    @IBOutlet var f1:UITextField!
+    @IBOutlet weak var f1:UITextField!
     @IBOutlet weak var f2:UITextField!
     @IBOutlet weak var f3:UITextField!
     @IBOutlet weak var f4:UITextField!
@@ -19,7 +19,22 @@ class SettingsVC: UITableViewController {
     @IBOutlet weak var f6:UITextField!
     @IBOutlet weak var f7:UITextField!
     @IBOutlet weak var idarkMode:UISwitch!
+    @IBOutlet weak var f1c:UILabel!
+    @IBOutlet weak var f2c:UILabel!
+    @IBOutlet weak var f3c:UILabel!
+    @IBOutlet weak var f4c:UILabel!
+    @IBOutlet weak var f5Ac:UILabel!
+    @IBOutlet weak var f5Bc:UILabel!
+    @IBOutlet weak var f6c:UILabel!
+    @IBOutlet weak var f7c:UILabel!
     
+    var timer: Timer!
+
+  func maxText() {
+        let alertController = UIAlertController(title: "Too Many Characters", message:"Maximum 12 Characters", preferredStyle: UIAlertController.Style.alert)
+        alertController.addAction(UIAlertAction(title: "Accept", style: UIAlertAction.Style.default,handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -31,12 +46,76 @@ class SettingsVC: UITableViewController {
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
-    let nvc = NormalVC()
+    func checkMax() {
+        if self.f1.text!.count > 13 {
+            self.f1.text = ""
+            self.maxText()
+        }
+        if self.f2.text!.count > 13 {
+            self.f2.text = ""
+            self.maxText()
+        }
+        if self.f3.text!.count > 13 {
+            self.f3.text = ""
+            self.maxText()
+        }
+        if self.f4.text!.count > 13 {
+            self.f4.text = ""
+            self.maxText()
+        }
+        if self.f5A.text!.count > 13 {
+            self.f5A.text = ""
+            self.maxText()
+        }
+        if self.f5B.text!.count > 13 {
+            self.f5B.text = ""
+            self.maxText()
+        }
+        if self.f6.text!.count > 13 {
+            self.f6.text = ""
+            self.maxText()
+        }
+        if self.f7.text!.count > 13 {
+            self.f7.text = ""
+            self.maxText()
+        }
+    }
+    func checkCount() {
+        var c1 = self.f1.text!.count
+        var c2 = self.f2.text!.count
+        var c3 = self.f3.text!.count
+        var c4 = self.f4.text!.count
+        var c5A = self.f5A.text!.count
+        var c5B = self.f5B.text!.count
+        var c6 = self.f6.text!.count
+        var c7 = self.f7.text!.count
+        self.f1c.text = String(c1) + "/13"
+        self.f2c.text = String(c2) + "/13"
+        self.f3c.text = String(c3) + "/13"
+        self.f4c.text = String(c4) + "/13"
+        self.f5Ac.text = String(c5A) + "/13"
+        self.f5Bc.text = String(c5B) + "/13"
+        self.f6c.text = String(c6) + "/13"
+        self.f7c.text = String(c7) + "/13"
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        tableView.allowsSelection = false
+        timer = Timer.scheduledTimer(withTimeInterval: 0.0, repeats: true, block: { _ in
+            self.checkMax()
+            self.checkCount()
+            
+        })
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        self.timer.invalidate()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-             let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-            tap.cancelsTouchesInView = false
-            view.addGestureRecognizer(tap)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
         let pd1 = defaults.object(forKey: "1111") as! String
         let pd2 = defaults.object(forKey: "2222") as! String
         let pd3 = defaults.object(forKey: "3333") as! String
@@ -118,6 +197,10 @@ class SettingsVC: UITableViewController {
                 print("New Default Set")
             }else {
                 print("Correct Default")
+            }
+            if f1S == "" {
+                f1.text = "Period 1"
+                defaults.set(f1.text, forKey: "1111")
             }
         }
     }

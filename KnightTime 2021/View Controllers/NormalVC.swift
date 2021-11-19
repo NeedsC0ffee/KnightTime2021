@@ -45,7 +45,6 @@ class NormalVC: UIViewController {
         }
     }
     
-    
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -129,8 +128,31 @@ class NormalVC: UIViewController {
             PeriodF.text = pd5B
             PeriodG.text = pd6
             PeriodH.text = pd7
+            timeA.text = "8:00 - 8:45"
+            timeB.text = "8:50 - 9:35"
+            timeCH.text = "9:45 - 10:20"
+            timeC.text = "10:30 - 11:15"
+            timeD.text = "11:20 - 12:05"
+            timeE.text = "12:10 - 12:50"
+            timeF.text = "12:55 - 1:35"
+            timeG.text = "1:40 - 2:25"
+            timeH.text = "2:30 - 3:15"
         }
         if blockDay == "Wednesday" {
+            let pd7 = defaults.object(forKey: "7777") as! String
+            let pd6 = defaults.object(forKey: "6666") as! String
+            let pd4 = defaults.object(forKey: "4444") as! String
+            let pd5A = defaults.object(forKey: "5555A") as! String
+            let pd5B = defaults.object(forKey: "5555B") as! String
+            PeriodA.text = pd7
+            PeriodB.text = "Chapel"
+            PeriodC.text = pd4
+            PeriodCH.text = pd5A
+            PeriodD.text = pd5B
+            PeriodE.text = pd6
+            PeriodF.isHidden = true
+            PeriodG.isHidden = true
+            PeriodH.isHidden = true
             timeA.text = "8:00 - 9:15"
             timeB.text = "9:25-10:30"
             timeCH.text = "10:40 - 11:55"
@@ -142,35 +164,27 @@ class NormalVC: UIViewController {
             timeH.isHidden = true
         }
         
-        /*
-        let pd1 = defaults.object(forKey: "1111") as! String
-        let pd2 = defaults.object(forKey: "2222") as! String
-        let pd3 = defaults.object(forKey: "3333") as! String
-        let pd4 = defaults.object(forKey: "4444") as! String
-        let pd5A = defaults.object(forKey: "5555A") as! String
-        let pd5B = defaults.object(forKey: "5555B") as! String
-        let pd6 = defaults.object(forKey: "6666") as! String
-        let pd7 = defaults.object(forKey: "7777") as! String
-        let ctD = defaults.object(forKey: "cTime") as! String
-         */
-        
         let jp = Json().parse()
         UIApplication.shared.isIdleTimerDisabled = true
-        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { _ in
-            self.cTLabel.text = jp.remainingLabel()
-            print("Working")
-            print(currentTime)
+        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { _ in
             currentTime = Int(Date().timeIntervalSince(todayDate))
-            if defaults.object(forKey: "pc") != nil {
-                let pc = defaults.object(forKey: "pc") as! String
-                let nc = defaults.object(forKey: "nc") as! String
-                self.cCLabel.text = "Current Class: " + pc
-                self.nCLabel.text = "Next Class: " + nc
+            if defaults.object(forKey: "nc") != nil && defaults.object(forKey: "pc") != nil {
+                self.cTLabel.text = jp.remainingLabel()
+                jp.cnv(jp.calendar)
+                if defaults.object(forKey: "pc") != nil {
+                    let pc = defaults.object(forKey: "pc") as! String
+                    let nc = defaults.object(forKey: "nc") as! String
+                    self.cCLabel.text = "Current Class: " + pc
+                    self.nCLabel.text = "Next Class: " + nc
+                }else {
+                    self.cCLabel.text = "Loading"
+                    self.nCLabel.text = "Loading"
+                }
             }else {
                 self.cCLabel.text = "No More"
                 self.nCLabel.text = "Classes"
             }
-            jp.makeBlue(jp.calendar)
+            self.checkday()
         })
         
         let cc = "Current Class: "

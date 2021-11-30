@@ -32,6 +32,7 @@ class NormalVC: UIViewController {
     @IBOutlet weak var timeH: UILabel!
     @IBOutlet var bgD: UIImageView!
     @IBOutlet var bgL: UIImageView!
+    @IBOutlet weak var sout: UIButton!
     
     func isAppAlreadyLaunchedOnce() -> Bool {
         let defaults = UserDefaults.standard
@@ -56,11 +57,13 @@ class NormalVC: UIViewController {
             overrideUserInterfaceStyle = .dark
             bgD.isHidden = false
             bgL.isHidden = true
+            sout.tintColor = .white
         }
         else {
             overrideUserInterfaceStyle = .light
             bgD.isHidden = true
             bgL.isHidden = false
+            sout.tintColor = .white
         }
         checkday()
     }
@@ -168,14 +171,29 @@ class NormalVC: UIViewController {
         UIApplication.shared.isIdleTimerDisabled = true
         Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { _ in
             currentTime = Int(Date().timeIntervalSince(todayDate))
+            if defaults.bool(forKey: "idarkMode") {
+                self.overrideUserInterfaceStyle = .dark
+                self.bgD.isHidden = false
+                self.bgL.isHidden = true
+            }
+            else {
+                self.overrideUserInterfaceStyle = .light
+                self.bgD.isHidden = true
+                self.bgL.isHidden = false
+            }
             if defaults.object(forKey: "nc") != nil && defaults.object(forKey: "pc") != nil {
                 self.cTLabel.text = jp.remainingLabel()
-                jp.cnv(jp.calendar)
+                jp.cnv(jp.calendar)	
                 if defaults.object(forKey: "pc") != nil {
                     let pc = defaults.object(forKey: "pc") as! String
                     let nc = defaults.object(forKey: "nc") as! String
-                    self.cCLabel.text = "Current Class: " + pc
-                    self.nCLabel.text = "Next Class: " + nc
+                    if pc == "Start" {
+                        self.cCLabel.text = "Classes Start Soon"
+                        self.nCLabel.text = "Have a Nice Day"
+                    }else {
+                        self.cCLabel.text = "Current Class: " + pc
+                        self.nCLabel.text = "Next Class: " + nc
+                    }
                 }else {
                     self.cCLabel.text = "Loading"
                     self.nCLabel.text = "Loading"
@@ -271,14 +289,14 @@ class NormalVC: UIViewController {
         PeriodG.text = pd6
         PeriodH.text = pd7
         if defaults.bool(forKey: "idarkMode") {
-            overrideUserInterfaceStyle = .dark
-            bgD.isHidden = false
-            bgL.isHidden = true
+            self.overrideUserInterfaceStyle = .dark
+            self.bgD.isHidden = false
+            self.bgL.isHidden = true
         }
         else {
-            overrideUserInterfaceStyle = .light
-            bgD.isHidden = true
-            bgL.isHidden = false
+            self.overrideUserInterfaceStyle = .light
+            self.bgD.isHidden = true
+            self.bgL.isHidden = false
         }
        
     }

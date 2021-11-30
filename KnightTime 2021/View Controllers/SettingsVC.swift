@@ -1,15 +1,15 @@
 //
-//  SettingsVC.swift
+//  nSVC.swift
 //  KnightTime 2021
 //
-//  Created by Dodson, Hayes on 9/15/21.
+//  Created by Dodson, Hayes on 11/30/21.
 //
 
-import UIKit
 import Foundation
+import UIKit
+import SwiftUI
 
-
-class SettingsVC: UITableViewController {
+class nSVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var f1:UITextField!
     @IBOutlet weak var f2:UITextField!
     @IBOutlet weak var f3:UITextField!
@@ -27,9 +27,12 @@ class SettingsVC: UITableViewController {
     @IBOutlet weak var f5Bc:UILabel!
     @IBOutlet weak var f6c:UILabel!
     @IBOutlet weak var f7c:UILabel!
+    @IBOutlet weak var sBGL:UIImageView!
+    @IBOutlet weak var sBGD:UIImageView!
+    @IBOutlet weak var out:UIButton!
     
     var timer: Timer!
-
+    
   func maxText() {
         let alertController = UIAlertController(title: "Too Many Characters", message:"Maximum 12 Characters", preferredStyle: UIAlertController.Style.alert)
         alertController.addAction(UIAlertAction(title: "Accept", style: UIAlertAction.Style.default,handler: nil))
@@ -98,18 +101,52 @@ class SettingsVC: UITableViewController {
         self.f6c.text = String(c6) + "/13"
         self.f7c.text = String(c7) + "/13"
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        f1.delegate = self
+        f2.delegate = self
+        f3.delegate = self
+        f4.delegate = self
+        f5A.delegate = self
+        f5B.delegate = self
+        f6.delegate = self
+        f7.delegate = self
+    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        tableView.allowsSelection = false
         timer = Timer.scheduledTimer(withTimeInterval: 0.0, repeats: true, block: { _ in
             self.checkMax()
             self.checkCount()
-            
+            if defaults.bool(forKey: "idarkMode") {
+                self.overrideUserInterfaceStyle = .dark
+                self.fixColor()
+                self.sBGD.isHidden = false
+                self.sBGL.isHidden = true
+            }
+            else {
+                self.overrideUserInterfaceStyle = .light
+                self.fixColor()
+                self.sBGD.isHidden = true
+                self.sBGL.isHidden = false
+            }
         })
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
         self.timer.invalidate()
+        if defaults.bool(forKey: "idarkMode") {
+            self.overrideUserInterfaceStyle = .dark
+            self.fixColor()
+            self.sBGD.isHidden = false
+            self.sBGL.isHidden = true
+        }
+        else {
+            self.overrideUserInterfaceStyle = .light
+            self.fixColor()
+            self.sBGD.isHidden = true
+            self.sBGL.isHidden = false
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -126,12 +163,26 @@ class SettingsVC: UITableViewController {
         let pd7 = defaults.object(forKey: "7777") as! String
         if defaults.bool(forKey: "idarkMode") {
             overrideUserInterfaceStyle = .dark
+            self.fixColor()
             idarkMode.setOn(true, animated: false)
             }
             else {
                 overrideUserInterfaceStyle = .light
+                self.fixColor()
                 idarkMode.setOn(false, animated: false)
                 }
+        if defaults.bool(forKey: "idarkMode") {
+            self.overrideUserInterfaceStyle = .dark
+            self.sBGD.isHidden = false
+            self.sBGL.isHidden = true
+            self.fixColor()
+        }
+        else {
+            self.overrideUserInterfaceStyle = .light
+            self.sBGD.isHidden = true
+            self.sBGL.isHidden = false
+            self.fixColor()
+        }
         if pd1 != "57**&^$$%48" {
             print("Default 1 Set")
             f1.text = pd1
@@ -292,12 +343,35 @@ class SettingsVC: UITableViewController {
         if idarkMode.isOn {
             defaults.set(true, forKey: "idarkMode")
             overrideUserInterfaceStyle = .dark
+            sBGD.isHidden = false
+            sBGL.isHidden = true
+            out.tintColor = .white
+            fixColor()
             }
         else {
             defaults.set(false, forKey: "idarkMode")
             overrideUserInterfaceStyle = .light
+            sBGL.isHidden = false
+            sBGD.isHidden = true
+            out.tintColor = .white
+            fixColor()
             }
-        print("Dark Mode = ", idarkMode.isOn)
+
     }
+    func fixColor() {
+        f1.tintColor = .blue
+        f2.tintColor = .blue
+        f3.tintColor = .blue
+        f4.tintColor = .blue
+        f5A.tintColor = .blue
+        f5B.tintColor = .blue
+        f6.tintColor = .blue
+        f7.tintColor = .blue
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        textField.returnKeyType = .done
+        return true
+        }
     
 }

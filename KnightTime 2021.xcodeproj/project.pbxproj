@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A100C2A126F232880081AF86 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A100C2A026F232880081AF86 /* SettingsVC.swift */; };
 		A107695926F8EC3900A4194C /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A107695826F8EC3900A4194C /* OnboardingVC.swift */; };
 		A1164FB826F00A79005816EB /* NormalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1164FB726F00A79005816EB /* NormalVC.swift */; };
 		A18A6B1126EFA7CD004A8F36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18A6B1026EFA7CD004A8F36 /* AppDelegate.swift */; };
@@ -17,11 +16,11 @@
 		A18A6B2026EFA7CD004A8F36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A18A6B1E26EFA7CD004A8F36 /* LaunchScreen.storyboard */; };
 		A1AE7ADF2706014F00A7BE6E /* calendarBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AE7ADE2706014F00A7BE6E /* calendarBackground.swift */; };
 		A1B282E726F44FD600689F39 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B282E626F44FD600689F39 /* Background.swift */; };
+		A1EC800127566B20000E5F0D /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC800027566B20000E5F0D /* SettingsVC.swift */; };
 		A1F7F35F26F90CE90097FF6E /* HomeworkVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F7F35E26F90CE90097FF6E /* HomeworkVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A100C2A026F232880081AF86 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		A107695826F8EC3900A4194C /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
 		A1164FB726F00A79005816EB /* NormalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalVC.swift; sourceTree = "<group>"; };
 		A18A6B0D26EFA7CD004A8F36 /* KnightTime 2021.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KnightTime 2021.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -33,6 +32,7 @@
 		A18A6B2126EFA7CD004A8F36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1AE7ADE2706014F00A7BE6E /* calendarBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calendarBackground.swift; sourceTree = "<group>"; };
 		A1B282E626F44FD600689F39 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
+		A1EC800027566B20000E5F0D /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		A1F7F35E26F90CE90097FF6E /* HomeworkVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeworkVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,7 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				A1164FB726F00A79005816EB /* NormalVC.swift */,
-				A100C2A026F232880081AF86 /* SettingsVC.swift */,
+				A1EC800027566B20000E5F0D /* SettingsVC.swift */,
 				A107695826F8EC3900A4194C /* OnboardingVC.swift */,
 				A1F7F35E26F90CE90097FF6E /* HomeworkVC.swift */,
 			);
@@ -170,13 +170,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1EC800127566B20000E5F0D /* SettingsVC.swift in Sources */,
 				A1164FB826F00A79005816EB /* NormalVC.swift in Sources */,
 				A107695926F8EC3900A4194C /* OnboardingVC.swift in Sources */,
 				A18A6B1126EFA7CD004A8F36 /* AppDelegate.swift in Sources */,
 				A1F7F35F26F90CE90097FF6E /* HomeworkVC.swift in Sources */,
 				A18A6B1326EFA7CD004A8F36 /* SceneDelegate.swift in Sources */,
 				A1AE7ADF2706014F00A7BE6E /* calendarBackground.swift in Sources */,
-				A100C2A126F232880081AF86 /* SettingsVC.swift in Sources */,
 				A1B282E726F44FD600689F39 /* Background.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -326,7 +326,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 391;
+				CURRENT_PROJECT_VERSION = 451;
 				DEVELOPMENT_TEAM = 6ZDK442TU6;
 				INFOPLIST_FILE = "KnightTime 2021/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -349,7 +349,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 391;
+				CURRENT_PROJECT_VERSION = 451;
 				DEVELOPMENT_TEAM = 6ZDK442TU6;
 				INFOPLIST_FILE = "KnightTime 2021/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;

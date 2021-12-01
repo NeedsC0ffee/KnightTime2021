@@ -171,9 +171,6 @@ class NormalVC: UIViewController {
         UIApplication.shared.isIdleTimerDisabled = true
         Timer.scheduledTimer(withTimeInterval: 0.0, repeats: true, block: { _ in
             currentTime = Int(Date().timeIntervalSince(todayDate))
-            print(jp.remainingLabel())
-            print(defaults.object(forKey: "pc"))
-            print(defaults.object(forKey: "nc"))
             if defaults.bool(forKey: "idarkMode") {
                 self.overrideUserInterfaceStyle = .dark
                 self.bgD.isHidden = false
@@ -184,28 +181,31 @@ class NormalVC: UIViewController {
                 self.bgD.isHidden = true
                 self.bgL.isHidden = false
             }
-            self.cTLabel.text = jp.remainingLabel()
-            if defaults.object(forKey: "nc") != nil && defaults.object(forKey: "pc") != nil {
-                jp.cnv(jp.calendar)
-                if defaults.object(forKey: "pc") != nil {
-                    let pc = defaults.object(forKey: "pc") as! String
-                    let nc = defaults.object(forKey: "nc") as! String
-                    if pc == "Start" {
-                        self.cCLabel.text = "Classes Start Soon"
-                        self.nCLabel.text = "Have a Nice Day"
+            if defaults.object(forKey: "") as? String != "end" {
+                self.cTLabel.text = jp.remainingLabel()
+                if defaults.object(forKey: "nc") != nil && defaults.object(forKey: "pc") != nil {
+                    jp.cnv(jp.calendar)
+                    if defaults.object(forKey: "pc") != nil {
+                        let pc = defaults.object(forKey: "pc") as! String
+                        let nc = defaults.object(forKey: "nc") as! String
+                        if pc == "Start" {
+                            self.cCLabel.text = "Classes Start Soon"
+                            self.nCLabel.text = "Have a Nice Day"
+                        }else {
+                            self.cCLabel.text = "Current Class: " + pc
+                            self.nCLabel.text = "Next Class: " + nc
+                        }
                     }else {
-                        self.cCLabel.text = "Current Class: " + pc
-                        self.nCLabel.text = "Next Class: " + nc
+                        self.cCLabel.text = "Loading"
+                        self.nCLabel.text = "Loading"
                     }
                 }else {
-                    self.cCLabel.text = "Loading"
-                    self.nCLabel.text = "Loading"
+                    self.cCLabel.text = "No More"
+                    self.nCLabel.text = "Classes"
+                    self.cTLabel.text = "00:00"
                 }
-            }else {
-                self.cCLabel.text = "No More"
-                self.nCLabel.text = "Classes"
+                self.checkday()
             }
-            self.checkday()
         })
         
         let cc = "Current Class: "

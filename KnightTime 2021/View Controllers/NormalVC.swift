@@ -169,8 +169,11 @@ class NormalVC: UIViewController {
         
         let jp = Json().parse()
         UIApplication.shared.isIdleTimerDisabled = true
-        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { _ in
+        Timer.scheduledTimer(withTimeInterval: 0.0, repeats: true, block: { _ in
             currentTime = Int(Date().timeIntervalSince(todayDate))
+            print(jp.remainingLabel())
+            print(defaults.object(forKey: "pc"))
+            print(defaults.object(forKey: "nc"))
             if defaults.bool(forKey: "idarkMode") {
                 self.overrideUserInterfaceStyle = .dark
                 self.bgD.isHidden = false
@@ -181,9 +184,9 @@ class NormalVC: UIViewController {
                 self.bgD.isHidden = true
                 self.bgL.isHidden = false
             }
+            self.cTLabel.text = jp.remainingLabel()
             if defaults.object(forKey: "nc") != nil && defaults.object(forKey: "pc") != nil {
-                self.cTLabel.text = jp.remainingLabel()
-                jp.cnv(jp.calendar)	
+                jp.cnv(jp.calendar)
                 if defaults.object(forKey: "pc") != nil {
                     let pc = defaults.object(forKey: "pc") as! String
                     let nc = defaults.object(forKey: "nc") as! String

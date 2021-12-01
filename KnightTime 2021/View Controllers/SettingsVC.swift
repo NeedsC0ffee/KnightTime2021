@@ -265,6 +265,10 @@ class nSVC: UIViewController, UITextFieldDelegate {
             }else {
                 print("Correct Default")
             }
+            if f2S == "" {
+                f2.text = "Period 2"
+                defaults.set(f2.text, forKey: "2222")
+            }
         }
     }
     @IBAction func updateF3() {
@@ -276,6 +280,10 @@ class nSVC: UIViewController, UITextFieldDelegate {
                 print("New Default Set")
             }else {
                 print("Correct Default")
+            }
+            if f3S == "" {
+                f3.text = "Period 3"
+                defaults.set(f3.text, forKey: "3333")
             }
         }
     }
@@ -289,6 +297,10 @@ class nSVC: UIViewController, UITextFieldDelegate {
             }else {
                 print("Correct Default")
             }
+            if f4S == "" {
+                f4.text = "Period 4"
+                defaults.set(f4.text, forKey: "4444")
+            }
         }
     }
     @IBAction func updateF5A() {
@@ -301,6 +313,10 @@ class nSVC: UIViewController, UITextFieldDelegate {
             }else {
                 print("Correct Default")
             }
+            if f5AS == "" {
+                f5A.text = "Period 5A"
+                defaults.set(f5A.text, forKey: "5555A")
+            }
         }
     }
     @IBAction func updateF5B() {
@@ -312,6 +328,10 @@ class nSVC: UIViewController, UITextFieldDelegate {
                 print("New Default Set")
             }else {
                 print("Correct Default")
+            }
+            if f5BS == "" {
+                f5B.text = "Period 5B"
+                defaults.set(f5B.text, forKey: "5555B")
             }
         }
     }

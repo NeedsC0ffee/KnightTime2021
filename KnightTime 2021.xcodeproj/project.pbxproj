@@ -23,6 +23,7 @@
 /* Begin PBXFileReference section */
 		A107695826F8EC3900A4194C /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
 		A1164FB726F00A79005816EB /* NormalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalVC.swift; sourceTree = "<group>"; };
+		A11DAB8B2757EBF9000E0E52 /* KnightTime 2021.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "KnightTime 2021.entitlements"; sourceTree = "<group>"; };
 		A18A6B0D26EFA7CD004A8F36 /* KnightTime 2021.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KnightTime 2021.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A18A6B1026EFA7CD004A8F36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A18A6B1226EFA7CD004A8F36 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +68,7 @@
 		A18A6B0F26EFA7CD004A8F36 /* KnightTime 2021 */ = {
 			isa = PBXGroup;
 			children = (
+				A11DAB8B2757EBF9000E0E52 /* KnightTime 2021.entitlements */,
 				A18A6B1026EFA7CD004A8F36 /* AppDelegate.swift */,
 				A18A6B1226EFA7CD004A8F36 /* SceneDelegate.swift */,
 				A18A6B1E26EFA7CD004A8F36 /* LaunchScreen.storyboard */,
@@ -325,6 +327,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = "KnightTime 2021/KnightTime 2021.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 451;
 				DEVELOPMENT_TEAM = 6ZDK442TU6;
@@ -337,6 +340,7 @@
 				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ehshouston.KnightTime2021;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -348,6 +352,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = "KnightTime 2021/KnightTime 2021.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 451;
 				DEVELOPMENT_TEAM = 6ZDK442TU6;
@@ -360,6 +365,7 @@
 				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ehshouston.KnightTime2021;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

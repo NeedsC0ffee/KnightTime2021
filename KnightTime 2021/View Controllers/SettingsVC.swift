@@ -345,6 +345,10 @@ class nSVC: UIViewController, UITextFieldDelegate {
             }else {
                 print("Correct Default")
             }
+            if f6S == "" {
+                f6.text = "Period 6"
+                defaults.set(f5B.text, forKey: "6666")
+            }
         }
     }
     @IBAction func updateF7() {

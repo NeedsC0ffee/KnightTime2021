@@ -34,6 +34,19 @@ class NormalVC: UIViewController {
     @IBOutlet var bgL: UIImageView!
     @IBOutlet weak var sout: UIButton!
     
+    func unHide() {
+        PeriodA.isHidden = false
+        PeriodB.isHidden = false
+        PeriodC.isHidden = false
+        PeriodCH.isHidden = false
+        PeriodD.isHidden = false
+        PeriodE.isHidden = false
+        PeriodF.isHidden = false
+        PeriodG.isHidden = false
+        PeriodH.isHidden = false
+        
+    }
+    
     func isAppAlreadyLaunchedOnce() -> Bool {
         let defaults = UserDefaults.standard
         if let _ = defaults.string(forKey: "isAppAlreadyLaunchedOnce") {
@@ -69,6 +82,7 @@ class NormalVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        unHide()
         if !isAppAlreadyLaunchedOnce() {
             print("Working")
             let p1 = "Period 1"
@@ -223,8 +237,8 @@ class NormalVC: UIViewController {
             let pd5B = defaults.object(forKey: "5555B") as! String
             PeriodA.text = pd2
             PeriodB.text = "Chapel"
-            PeriodC.text = pd3
-            PeriodCH.text = pd5A
+            PeriodCH.text = pd3
+            PeriodC.text = pd5A
             PeriodD.text = pd5B
             PeriodE.text = pd1
             PeriodF.isHidden = true
@@ -260,6 +274,17 @@ class NormalVC: UIViewController {
             PeriodH.text = pd7
         }
         if blockDay == "Wednesday" {
+            let pd5A = defaults.object(forKey: "5555A") as! String
+            let pd5B = defaults.object(forKey: "5555B") as! String
+            let pd6 = defaults.object(forKey: "6666") as! String
+            let pd7 = defaults.object(forKey: "7777") as! String
+            let pd4 = defaults.object(forKey: "4444") as! String
+            PeriodA.text = pd7
+            PeriodB.text = "Chapel"
+            PeriodCH.text = pd4
+            PeriodC.text = pd5A
+            PeriodD.text = pd5B
+            PeriodE.text = pd6
             timeA.text = "8:00 - 9:15"
             timeB.text = "9:25-10:30"
             timeCH.text = "10:40 - 11:55"
@@ -269,6 +294,9 @@ class NormalVC: UIViewController {
             timeF.isHidden = true
             timeG.isHidden = true
             timeH.isHidden = true
+            PeriodF.isHidden = true
+            PeriodG.isHidden = true
+            PeriodH.isHidden = true
         }
     }
     

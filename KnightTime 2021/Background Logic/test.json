@@ -1,0 +1,18 @@
+[
+  {
+    "title" : "test",
+    "schedule" : [
+      {
+        "start" : 31500,
+        "end" : 37200,
+        "name" : "test"
+      },
+      {
+        "start" : 37200,
+        "end" : 86400,
+        "name" : "end"
+      }
+    ],
+    "date" : "1638559663"
+  }
+]

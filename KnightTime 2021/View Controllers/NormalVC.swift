@@ -44,7 +44,34 @@ class NormalVC: UIViewController {
         PeriodF.isHidden = false
         PeriodG.isHidden = false
         PeriodH.isHidden = false
+    }
+    
+    private func readLocalFile(forName name: String) -> Data? {
+        do {
+            if let bundlePath = Bundle.main.path(forResource: name,
+                                                 ofType: "json"),
+                let jsonData = try String(contentsOfFile: bundlePath).data(using: .utf8) {
+                return jsonData
+            }
+        } catch {
+            print(error)
+        }
         
+        return nil
+    }
+
+    private func parse(jsonData: Data) {
+        do {
+            let decodedData = try JSONDecoder().decode(Day.self,
+                                                       from: jsonData)
+            
+            print("Title: ", decodedData.title)
+            print("Schedule: ", decodedData.schedule)
+            print("Today: ", decodedData.date)
+            print("===================================")
+        } catch {
+            print("decode error")
+        }
     }
     
     func isAppAlreadyLaunchedOnce() -> Bool {
@@ -83,6 +110,9 @@ class NormalVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         unHide()
+        if let localData = self.readLocalFile(forName: "JsonTestDocument1") {
+            self.parse(jsonData: localData)
+        }
         if !isAppAlreadyLaunchedOnce() {
             print("Working")
             let p1 = "Period 1"
@@ -181,7 +211,7 @@ class NormalVC: UIViewController {
             timeH.isHidden = true
         }
         
-        let jp = Json().parse()
+        let jp = Json().get()
         UIApplication.shared.isIdleTimerDisabled = true
         Timer.scheduledTimer(withTimeInterval: 0.0, repeats: true, block: { _ in
             currentTime = Int(Date().timeIntervalSince(todayDate))

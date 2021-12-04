@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A1164FB826F00A79005816EB /* NormalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1164FB726F00A79005816EB /* NormalVC.swift */; };
+		A14FD1BA275AAF9A0069BC88 /* test2021.json in Resources */ = {isa = PBXBuildFile; fileRef = A14FD1B9275AAF9A0069BC88 /* test2021.json */; };
+		A14FD1BC275AB3100069BC88 /* JsonTestDocument1.json in Resources */ = {isa = PBXBuildFile; fileRef = A14FD1BB275AB3100069BC88 /* JsonTestDocument1.json */; };
 		A18A6B1126EFA7CD004A8F36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18A6B1026EFA7CD004A8F36 /* AppDelegate.swift */; };
 		A18A6B1326EFA7CD004A8F36 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18A6B1226EFA7CD004A8F36 /* SceneDelegate.swift */; };
 		A18A6B1826EFA7CD004A8F36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A18A6B1626EFA7CD004A8F36 /* Main.storyboard */; };
@@ -21,6 +23,8 @@
 /* Begin PBXFileReference section */
 		A1164FB726F00A79005816EB /* NormalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalVC.swift; sourceTree = "<group>"; };
 		A11DAB8B2757EBF9000E0E52 /* KnightTime 2021.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "KnightTime 2021.entitlements"; sourceTree = "<group>"; };
+		A14FD1B9275AAF9A0069BC88 /* test2021.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = test2021.json; path = ../../../Downloads/test2021.json; sourceTree = "<group>"; usesTabs = 0; };
+		A14FD1BB275AB3100069BC88 /* JsonTestDocument1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = JsonTestDocument1.json; path = ../../../Downloads/JsonTestDocument1.json; sourceTree = "<group>"; };
 		A18A6B0D26EFA7CD004A8F36 /* KnightTime 2021.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KnightTime 2021.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A18A6B1026EFA7CD004A8F36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A18A6B1226EFA7CD004A8F36 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +73,8 @@
 				A18A6B1226EFA7CD004A8F36 /* SceneDelegate.swift */,
 				A18A6B1E26EFA7CD004A8F36 /* LaunchScreen.storyboard */,
 				A18A6B1626EFA7CD004A8F36 /* Main.storyboard */,
+				A14FD1B9275AAF9A0069BC88 /* test2021.json */,
+				A14FD1BB275AB3100069BC88 /* JsonTestDocument1.json */,
 				A1B282E526F44FC600689F39 /* Background Logic */,
 				A18A6B2726EFA972004A8F36 /* View Controllers */,
 				A18A6B1C26EFA7CD004A8F36 /* Assets.xcassets */,
@@ -155,6 +161,8 @@
 			files = (
 				A18A6B2026EFA7CD004A8F36 /* LaunchScreen.storyboard in Resources */,
 				A18A6B1D26EFA7CD004A8F36 /* Assets.xcassets in Resources */,
+				A14FD1BA275AAF9A0069BC88 /* test2021.json in Resources */,
+				A14FD1BC275AB3100069BC88 /* JsonTestDocument1.json in Resources */,
 				A18A6B1826EFA7CD004A8F36 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -321,7 +329,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = "KnightTime 2021/KnightTime 2021.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 470;
+				CURRENT_PROJECT_VERSION = 471;
 				DEVELOPMENT_TEAM = 6ZDK442TU6;
 				INFOPLIST_FILE = "KnightTime 2021/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -346,7 +354,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = "KnightTime 2021/KnightTime 2021.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 470;
+				CURRENT_PROJECT_VERSION = 471;
 				DEVELOPMENT_TEAM = 6ZDK442TU6;
 				INFOPLIST_FILE = "KnightTime 2021/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;

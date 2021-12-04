@@ -94,7 +94,7 @@ struct calendarLogic: Codable {
     }
     
     func remainingLabel() -> String {
-        let jp = Json().parse()
+        let jp = Json().get()
         return convertTime(jp.remainingTime(jp.calendar))
         }
     
@@ -247,5 +247,3 @@ struct calendarLogic: Codable {
 }
 
     
-    
-
